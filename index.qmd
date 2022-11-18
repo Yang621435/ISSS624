@@ -1,7 +1,13 @@
 ---
-title: "ISSS624"
+title: "ISSS624 Applied Geospatial Analytics"
 ---
 
-Welcome to ISSS624 Geospatial Analytics Applications!
+## Welcome to ISSS624 Geospatial Analytics Applications!
 
 In this webpage, I am going to share with you my learning journey of geospatial analytics.
+
+Student: Yang Jingyuan
+
+E-mail: jyyang.2022\@mitb.smu.edu.sg
+
+![](https://geography.unt.edu/sites/geography.unt.edu/files/geography/geospatial.png)
