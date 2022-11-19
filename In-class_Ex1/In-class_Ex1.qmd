@@ -1,0 +1,30 @@
+---
+title: "In-class Exercise 1"
+editor: visual
+---
+
+November 19, 2022
+
+## Overview
+
+This is in-class exercise 1.
+
+## Getting Started
+
+The code chunk below will install and load [tidyverse](https://www.tidyverse.org/) and [sf](https://r-spatial.github.io/sf/) packages.
+
+```{r}
+pacman::p_load(sf, tidyverse)
+```
+
+`pacman::p_load(xxx)` is similar to `import xxx` in python. Normally we don't need the `pacman::`, but here because we don't load the package, so we need to cite is before the `p_load`.
+
+## Importing Geospatial Data
+
+### Importing polygon features
+
+This code chunk will import ESRI shapefile into R.
+
+```{r}
+mpsz <- st_read(dsn = "data/geospatial", layer = "MP14_SUBZONE_WEB_PL")
+```

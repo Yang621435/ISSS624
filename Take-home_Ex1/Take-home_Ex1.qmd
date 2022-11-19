@@ -1,0 +1,18 @@
+---
+title: "Take-home Exercise 1"
+editor: visual
+---
+
+November 19, 2022
+
+## Overview
+
+This is take-home exercise 1.
+
+## Getting Started
+
+The code chunk below will install and load [tidyverse](https://www.tidyverse.org/) and [sf](https://r-spatial.github.io/sf/) packages.
+
+```{r}
+pacman::p_load(sf, tidyverse)
+```

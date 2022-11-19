@@ -116,6 +116,10 @@ cyclingpath = st_read(dsn = "data/geospatial",
                          layer = "CyclingPath")
 ```
 
+The **layer** should be `CyclingPathGazette` if we download the data from the gov website, if we download the data from e-learn, it should be `CyclingPath`. In other words, **always look at the data format** when writing codes.
+
+![](images/paste-F64DEE4A.png){fig-align="center"}
+
 The message above reveals that there are a total of 1625 features and 2 fields in `cyclingpath` linestring feature data frame and it is in **svy21** projected coordinates system too.
 
 ### Importing GIS data in kml format
@@ -242,6 +246,8 @@ preschool3414 <- st_transform(preschool,
 ```
 
 > Note: In practice, we need find out the appropriate project coordinate system to use before performing the projection transformation.
+>
+> 3414 is a secret code to transform data into SVY21 format.
 
 Next, let us display the content of preschool3414 sf data frame as shown below.
 

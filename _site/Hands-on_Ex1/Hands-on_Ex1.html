@@ -175,7 +175,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">In-class Exercises</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-in-class-exercises">    
-        <li class="dropdown-header">In-class Exercise 1</li>
+        <li>
+    <a class="dropdown-item" href="../In-class_Ex1/In-class_Ex1.html">
+ <span class="dropdown-text">In-class Exercise 1</span></a>
+  </li>  
         <li class="dropdown-header">In-class Exercise 2</li>
         <li class="dropdown-header">In-class Exercise 3</li>
         <li class="dropdown-header">In-class Exercise 4</li>
@@ -187,7 +190,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Take-home Exercises</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercises">    
-        <li class="dropdown-header">Take-home Exercise 1</li>
+        <li>
+    <a class="dropdown-item" href="../Take-home_Ex1/Take-home_Ex1.html">
+ <span class="dropdown-text">Take-home Exercise 1</span></a>
+  </li>  
         <li class="dropdown-header">Take-home Exercise 2</li>
         <li class="dropdown-header">Take-home Exercise 3</li>
         <li class="dropdown-header">Take-home Exercise 4</li>
@@ -387,6 +393,12 @@ Dimension:     XY
 Bounding box:  xmin: 12711.19 ymin: 28711.33 xmax: 42626.09 ymax: 48948.15
 Projected CRS: SVY21</code></pre>
 </div>
+</div>
+<p>The <strong>layer</strong> should be <code>CyclingPathGazette</code> if we download the data from the gov website, if we download the data from e-learn, it should be <code>CyclingPath</code>. In other words, <strong>always look at the data format</strong> when writing codes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-F64DEE4A.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 <p>The message above reveals that there are a total of 1625 features and 2 fields in <code>cyclingpath</code> linestring feature data frame and it is in <strong>svy21</strong> projected coordinates system too.</p>
 </section>
@@ -694,6 +706,7 @@ First 5 geometries:</code></pre>
 </div>
 <blockquote class="blockquote">
 <p>Note: In practice, we need find out the appropriate project coordinate system to use before performing the projection transformation.</p>
+<p>3414 is a secret code to transform data into SVY21 format.</p>
 </blockquote>
 <p>Next, let us display the content of preschool3414 sf data frame as shown below.</p>
 <div class="cell">
