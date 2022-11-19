@@ -215,7 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#choropleth-mapping-geospatial-data-using-tmap" id="toc-choropleth-mapping-geospatial-data-using-tmap" class="nav-link" data-scroll-target="#choropleth-mapping-geospatial-data-using-tmap">Choropleth Mapping Geospatial Data Using <em>tmap</em></a>
   <ul class="collapse">
   <li><a href="#plotting-a-choropleth-map-quickly-by-using-qtm" id="toc-plotting-a-choropleth-map-quickly-by-using-qtm" class="nav-link" data-scroll-target="#plotting-a-choropleth-map-quickly-by-using-qtm">Plotting a choropleth map quickly by using <em>qtm()</em></a></li>
-  <li><a href="#creating-a-choropleth-map-by-using-tmaps-elements" id="toc-creating-a-choropleth-map-by-using-tmaps-elements" class="nav-link" data-scroll-target="#creating-a-choropleth-map-by-using-tmaps-elements">Creating a choropleth map by using <em>tmap</em>'s elements</a></li>
+  <li><a href="#creating-a-choropleth-map-by-using-tmaps-elements" id="toc-creating-a-choropleth-map-by-using-tmaps-elements" class="nav-link" data-scroll-target="#creating-a-choropleth-map-by-using-tmaps-elements">Creating a choropleth map by using <em>tmap</em>’s elements</a></li>
   <li><a href="#data-classification-methods-of-tmap" id="toc-data-classification-methods-of-tmap" class="nav-link" data-scroll-target="#data-classification-methods-of-tmap">Data classification methods of <strong>tmap</strong></a></li>
   <li><a href="#colour-scheme" id="toc-colour-scheme" class="nav-link" data-scroll-target="#colour-scheme">Colour Scheme</a></li>
   <li><a href="#map-layouts" id="toc-map-layouts" class="nav-link" data-scroll-target="#map-layouts">Map Layouts</a></li>
@@ -469,13 +469,13 @@ dbl (2): Pop, Time
 </div>
 <p>Things to learn from the code chunk above:</p>
 <ul>
-<li><p><em>tmap_mode()</em> with "plot" option is used to produce a static map. For interactive mode, "view" option should be used.</p></li>
+<li><p><em>tmap_mode()</em> with “plot” option is used to produce a static map. For interactive mode, “view” option should be used.</p></li>
 <li><p><em>fill</em> argument is used to map the attribute (i.e.&nbsp;DEPENDENCY)</p></li>
 </ul>
 </section>
 <section id="creating-a-choropleth-map-by-using-tmaps-elements" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-choropleth-map-by-using-tmaps-elements">Creating a choropleth map by using <em>tmap</em>'s elements</h3>
-<p>Despite its usefulness of drawing a choropleth map quickly and easily, the disadvantge of <em>qtm()</em> is that it makes aesthetics of individual layers harder to control. To draw a high quality cartographic choropleth map as shown in the figure below, <strong>tmap</strong>'s drawing elements should be used.</p>
+<h3 class="anchored" data-anchor-id="creating-a-choropleth-map-by-using-tmaps-elements">Creating a choropleth map by using <em>tmap</em>’s elements</h3>
+<p>Despite its usefulness of drawing a choropleth map quickly and easily, the disadvantge of <em>qtm()</em> is that it makes aesthetics of individual layers harder to control. To draw a high quality cartographic choropleth map as shown in the figure below, <strong>tmap</strong>’s drawing elements should be used.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020)<span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"DEPENDENCY"</span>, </span>
@@ -523,7 +523,7 @@ dbl (2): Pop, Time
 </div>
 <p>Things to learn from <em>tm_polygons()</em>:</p>
 <ul>
-<li><p>The default interval binning used to draw the choropleth map is called "pretty". A detailed discussion of the data classification methods supported by <strong>tmap</strong> will be provided in sub-section 4.3.</p></li>
+<li><p>The default interval binning used to draw the choropleth map is called “pretty”. A detailed discussion of the data classification methods supported by <strong>tmap</strong> will be provided in sub-section 4.3.</p></li>
 <li><p>The default colour scheme used is <code>YlOrRd</code> of ColorBrewer. You will learn more about the color scheme in sub-section 4.4.</p></li>
 <li><p>By default, Missing value will be shaded in grey.</p></li>
 </ul>
@@ -555,7 +555,7 @@ dbl (2): Pop, Time
 <ul>
 <li><p><em>col</em> = border colour,</p></li>
 <li><p><em>lwd</em> = border line width. The default is 1, and</p></li>
-<li><p><em>lty</em> = border line type. The default is "solid".</p></li>
+<li><p><em>lty</em> = border line type. The default is “solid”.</p></li>
 </ul>
 </section>
 </section>
@@ -644,7 +644,7 @@ dbl (2): Pop, Time
 </div>
 </div>
 <p>Notice that the choropleth map is shaded in green.</p>
-<p>To reverse the colour shading, add a "-" prefix.</p>
+<p>To reverse the colour shading, add a “-” prefix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020)<span class="sc">+</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"DEPENDENCY"</span>,</span>
@@ -888,7 +888,7 @@ Please use legend.outside.size to control the width of the outside legend</code>
 <ul>
 <li><p><a href="https://dplyr.tidyverse.org/">dplyr</a></p></li>
 <li><p><a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">Tidy data</a></p></li>
-<li><p><a href="https://cran.r-project.org/web/packages/tidyr/tidyr.pdf">tidyr: Easily Tidy Data with 'spread()' and 'gather()' Functions</a></p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/tidyr/tidyr.pdf">tidyr: Easily Tidy Data with ‘spread()’ and ‘gather()’ Functions</a></p></li>
 </ul>
 
 

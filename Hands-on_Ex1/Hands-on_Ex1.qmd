@@ -132,7 +132,7 @@ The message above reveals that `preschool` is a point feature data frame. There 
 
 In this sub-section, you will learn different ways to retrieve information related to the content of a simple feature data frame.
 
-### 1.5.1 Working with *st_geometry()*
+### Working with *st_geometry()*
 
 The column in the sf data.frame that contains the geometries is a list, of class `sfc`. We can retrieve the geometry list-column in this case by mpsz\$geom or mpsz\[\[1\]\], but the more general way uses *st_geometry()* as shown in the code chunk below.
 
@@ -196,7 +196,7 @@ Map projection is an important property of a geospatial data. In order to perfor
 
 In this section, you will learn how to project a simple feature data frame from one coordinate system to another coordinate system. The technical term of this process is called **projection transformation**.
 
-### 1.7.1 Assigning EPSG code to a simple feature data frame
+### Assigning EPSG code to a simple feature data frame
 
 One of the common issue that can happen during importing geospatial data into R is that the coordinate system of the source data was either missing (such as due to missing .proj for ESRI shapefile) or wrongly assigned during the importing process.
 
@@ -292,7 +292,7 @@ Things to learn from the arguments above:
 
 -   *coords* argument requires you to provide the column name of the x-coordinates first then followed by the column name of the y-coordinates.
 
--   *crs* argument requires you to provide the coordinates system in epsg format. [EPSG: 4326](https://epsg.io/4326) is wgs84 Geographic Coordinate System and [EPSG: 3414](https://epsg.io/3414) is Singapore SVY21 Projected Coordinate System. You can search for other country\'s epsg code by referring to [epsg.io](https://epsg.io/).
+-   *crs* argument requires you to provide the coordinates system in epsg format. [EPSG: 4326](https://epsg.io/4326) is wgs84 Geographic Coordinate System and [EPSG: 3414](https://epsg.io/3414) is Singapore SVY21 Projected Coordinate System. You can search for other country's epsg code by referring to [epsg.io](https://epsg.io/).
 
 -   *%\>%* is used to nest *st_transform()* to transform the newly created simple feature data frame into svy21 projected coordinates system.
 
