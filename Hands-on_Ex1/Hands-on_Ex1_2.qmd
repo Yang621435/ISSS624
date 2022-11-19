@@ -3,7 +3,7 @@ title: "Hands-on Exercise 1: Choropleth Mapping with R"
 editor: visual
 ---
 
-November 18, 2022
+November 18, 2022 [Original Webpage](https://r4gdsa.netlify.app/chap02.html)
 
 ## Overview
 
