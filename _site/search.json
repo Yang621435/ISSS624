@@ -215,5 +215,61 @@
     "title": "Take-home Exercise 1",
     "section": "Getting Started",
     "text": "Getting Started\nThe code chunk below will install and load tidyverse and sf packages.\n\npacman::p_load(sf, tidyverse)"
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#setting-the-scene",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#setting-the-scene",
+    "title": "Take-home Exercise 1",
+    "section": "Setting the Scene",
+    "text": "Setting the Scene\nWater is an important resource to mankind. Clean and accessible water is critical to human health. It provides a healthy environment, a sustainable economy, reduces poverty and ensures peace and security. Yet over 40% of the global population does not have access to sufficient clean water. By 2025, 1.8 billion people will be living in countries or regions with absolute water scarcity, according to UN-Water. The lack of water poses a major threat to several sectors, including food security. Agriculture uses about 70% of the world's accessible freshwater.\nDeveloping countries are most affected by water shortages and poor water quality. Up to 80% of illnesses in the developing world are linked to inadequate water and sanitation. Despite technological advancement, providing clean water to the rural community is still a major development issues in many countries globally, especially countries in the Africa continent.\nTo address the issue of providing clean and sustainable water supply to the rural community, a global Water Point Data Exchange (WPdx) project has been initiated. The main aim of this initiative is to collect water point related data from rural areas at the water point or small water scheme level and share the data via WPdx Data Repository, a cloud-based data library. What is so special of this project is that data are collected based on WPDx Data Standard."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#objectives",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#objectives",
+    "title": "Take-home Exercise 1",
+    "section": "Objectives",
+    "text": "Objectives\nGeospatial analytics hold tremendous potential to address complex problems facing society. In this study, you are tasked to apply appropriate global and local measures of spatial Association techniques to reveals the spatial patterns of Not Functional water points. For the purpose of this study, Nigeria will be used as the study country."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#the-data",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#the-data",
+    "title": "Take-home Exercise 1",
+    "section": "The Data",
+    "text": "The Data\n\nApstial data\nFor the purpose of this assignment, data from WPdx Global Data Repositories will be used. There are two versions of the data. They are: WPdx-Basic and WPdx+. You are required to use WPdx+ data set.\n\n\nGeospatial data\nNigeria Level-2 Administrative Boundary (also known as Local Government Area) polygon features GIS data will be used in this take-home exercise. The data can be downloaded either from The Humanitarian Data Exchange portal or geoBoundaries."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#the-task",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#the-task",
+    "title": "Take-home Exercise 1",
+    "section": "The Task",
+    "text": "The Task\nThe specific tasks of this take-home exercise are as follows:\n\nUsing appropriate sf method, import the shapefile into R and save it in a simple feature data frame format. Note that there are three Projected Coordinate Systems of Nigeria, they are: EPSG: 26391, 26392, and 26303. You can use any one of them.\nUsing appropriate tidyr and dplyr methods, derive the proportion of functional and non-functional water point at LGA level.\nCombining the geospatial and aspatial data frame into simple feature data frame.\nPerforming outliers/clusters analysis by using appropriate local measures of spatial association methods.\nPerforming hotspot areas analysis by using appropriate local measures of spatial association methods.\n\n\nThematic Mapping\n\nPlot maps to show the spatial distribution of functional and non-functional water point rate at LGA level by using appropriate thematic mapping technique provided by tmap package.\n\n\n\nAnalytical Mapping\n\nPlot hotspot areas and outliers/clusters maps of functional and non0functional water point rate at LGA level by using appropriate thematic mapping technique provided by tmap package."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#grading-criteria",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#grading-criteria",
+    "title": "Take-home Exercise 1",
+    "section": "Grading Criteria",
+    "text": "Grading Criteria\nThis exercise will be graded by using the following criteria:\n\nGeospatial Data Wrangling (20 marks): This is an important aspect of geospatial analytics. You will be assessed on your ability to employ appropriate R functions from various R packages specifically designed for modern data science such as readr, tidyverse (tidyr, dplyr, ggplot2), sf just to mention a few of them, to perform the entire geospatial data wrangling processes, including. This is not limited to data import, data extraction, data cleaning and data transformation. Besides assessing your ability to use the R functions, this criterion also includes your ability to clean and derive appropriate variables to meet the analysis need. (Warning: All data are like vast grassland full of land mines. Your job is to clear those mines and not to step on them).\nGeospatial Analysis (30 marks): In this exercise, you are expected to use the appropriate thematic and analytics mapping techniques and R functions introduced in class to analysis the geospatial data prepared. You will be assessed on your ability to derive analytical maps by using appropriate rate mapping techniques.\nGeovisualisation (20 marks): In this section, you will be assessed on your ability to communicate the complex spatial statistics results in business friendly visual representations. This course is geospatial centric, hence, it is important for you to demonstrate your competency in using appropriate geovisualisation techniques to reveal and communicate the findings of your analysis.\nReproducibility (20 marks): This is an important learning outcome of this exercise. You will be assessed on your ability to provide a comprehensive documentation of the analysis procedures in the form of code chunks of RMarkdown. It is important to note that it is not enough by merely providing the code chunk without any explanation on the purpose and R function(s) used.\nBonus (10 marks): Demonstrate your ability to employ methods beyond what you had learned in class to gain insights from the data. The methods used must be geospatial in nature."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#submission-instructions",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#submission-instructions",
+    "title": "Take-home Exercise 1",
+    "section": "Submission Instructions",
+    "text": "Submission Instructions\n\nThe write-up of the take-home exercise must be in distill or blogdown format. You are required to publish the write-up on Netlify.\nThe R project of the take-home exercise must be pushed onto your Github repository.\nYou are required to provide the links to Netlify service of the take-home exercise write-up and github repository on eLearn."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#due-date",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#due-date",
+    "title": "Take-home Exercise 1",
+    "section": "Due Date",
+    "text": "Due Date\n29th November 2022 (Tuesday), 11.59pm (midnight)."
+  },
+  {
+    "objectID": "Take-home_Ex1/Take-home_Ex1.html#reference",
+    "href": "Take-home_Ex1/Take-home_Ex1.html#reference",
+    "title": "Take-home Exercise 1",
+    "section": "Reference",
+    "text": "Reference"
   }
 ]
