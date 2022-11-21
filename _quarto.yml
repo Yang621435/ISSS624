@@ -36,6 +36,8 @@ website:
     right:
       - href: index.qmd
         text: Home
+      - text: Errors Help
+        href: Errors_Help.qmd
       - about.qmd
 
 format:

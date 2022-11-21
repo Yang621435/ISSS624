@@ -1,0 +1,10 @@
+---
+title: "Errors Help"
+editor: visual
+---
+
+## Large Files that Exceed the Limit of Github
+
+![](images/paste-F609F05A.png)
+
+Refer to this link: [Tutorial: Removing Large Files from Git](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a)
