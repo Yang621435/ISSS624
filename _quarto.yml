@@ -39,10 +39,12 @@ website:
       - text: Errors Help
         href: Errors_Help.qmd
       - about.qmd
+      - text: Github
+        href: https://github.com/Yang621435?tab=repositories
 
 format:
   html:
-    theme: cosmo
+    theme: slate
     css: styles.css
     toc: true
 
