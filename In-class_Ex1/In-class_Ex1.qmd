@@ -1,7 +1,7 @@
 ---
-title: "Ex1 Spatial Weights and Applications"
-tags: 
-  - In-class Exercise
+title: "3 Spatial Weights and Applications"
+subtitle: "In-class Exercise 1"
+doi: "In-class"
 author: "Yang Jingyuan"
 editor: visual
 ---
@@ -21,6 +21,8 @@ In this in-class exercise, I will learn how to compute spatial weights using R. 
 -   compute spatial weights using appropriate functions of **spdep** package, and
 
 -   calculate spatially lagged variables using appropriate functions of **spdep** package.
+
+![](images/1669383056313.png)
 
 ## The Study Area and Data
 

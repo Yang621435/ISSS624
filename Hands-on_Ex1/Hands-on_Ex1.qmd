@@ -1,7 +1,7 @@
 ---
 title: "1 Geospatial Data Wrangling with R"
-tags: 
-  - "Hands-on Exercise"
+subtitle: "Hands-on Exercise 1"
+keywords: "Hands-on"
 author: Yang Jingyuan
 editor: visual
 ---
@@ -11,6 +11,8 @@ November 18, 2022 [Original Webpage](https://r4gdsa.netlify.app/chap01.html)
 ## Overview
 
 In this hands-on exercise, I learn how to import and wrangling geospatial data using appropriate R packages.
+
+![](images/1669382295970.png)
 
 ## Learning Objective
 
