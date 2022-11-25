@@ -12,7 +12,7 @@ November 18, 2022 [Original Webpage](https://r4gdsa.netlify.app/chap01.html)
 
 In this hands-on exercise, I learn how to import and wrangling geospatial data using appropriate R packages.
 
-![](images/1669382295970.png)
+![](images/1669384600293.png)
 
 ## Learning Objective
 
