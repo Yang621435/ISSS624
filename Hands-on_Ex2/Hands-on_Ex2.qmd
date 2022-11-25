@@ -1,5 +1,5 @@
 ---
-title: "3 Global and Local Measures of Spatial Autocorrelation"
+title: "4 Global and Local Measures of Spatial Autocorrelation"
 subtitle: "Hands-on Exercise 2"
 author: "Yang Jingyuan"
 editor: visual
