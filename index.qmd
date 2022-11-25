@@ -1,5 +1,16 @@
 ---
 title: "ISSS624 Applied Geospatial Analytics"
+listing: 
+  contents: 
+    - Hands-on_Ex1
+    - Hands-on_Ex2
+    - In-class_Ex1
+    - Take-home_Ex1
+  type: table
+  categories: true
+  sort: 
+    - "date"
+    - "title asc"
 ---
 
 ## Welcome to [ISSS624](https://isss624-ay2022-23nov.netlify.app/) Geospatial Analytics Applications!
@@ -8,8 +19,6 @@ In this webpage, I am going to share with you my learning journey of geospatial 
 
 Instructor: [Dr. Kam Tin Seong](https://faculty.smu.edu.sg/profile/kam-tin-seong-486), Associate Professor of Information Systems (Practice)
 
-Student: [Yang Jingyuan](https://personal-page-yjy.netlify.app/)
+Student: Yang Jingyuan
 
-E-mail: [jyyang.2022\@mitb.smu.edu.sg](jyyang.2022@mitb.smu.edu.sg)
-
-![](https://geography.unt.edu/sites/geography.unt.edu/files/geography/geospatial.png)
+E-mail: jyyang.2022\@mitb.smu.edu.sg

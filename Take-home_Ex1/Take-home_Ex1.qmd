@@ -1,5 +1,8 @@
 ---
 title: "Take-home Exercise 1"
+tags: 
+  - "Take-home Exercise"
+author: "Yang Jingyuan"
 editor: visual
 ---
 

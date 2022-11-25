@@ -3,6 +3,9 @@ project:
 
 website:
   title: "ISSS624"
+  search: 
+    location: navbar
+    type: textbox
   navbar:
     left: 
       - text: Hands-on Exercises
@@ -23,6 +26,7 @@ website:
           - text: In-class Exercise 1
             href: In-class_Ex1/In-class_Ex1.qmd
           - text: In-class Exercise 2
+            href: Listing.qmd
           - text: In-class Exercise 3
           - text: In-class Exercise 4
           - text: In-class Exercise 5
@@ -44,7 +48,7 @@ website:
 
 format:
   html:
-    theme: slate
+    theme: spacelab
     css: styles.css
     toc: true
 

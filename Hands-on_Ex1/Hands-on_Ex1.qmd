@@ -1,5 +1,8 @@
 ---
 title: "1 Geospatial Data Wrangling with R"
+tags: 
+  - "Hands-on Exercise"
+author: Yang Jingyuan
 editor: visual
 ---
 

@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Yang Jingyuan">
 
 <title>ISSS624 - 1 Geospatial Data Wrangling with R</title>
 <style>
@@ -98,16 +99,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
-  "type": "overlay",
+  "type": "textbox",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -179,7 +180,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../In-class_Ex1/In-class_Ex1.html">
  <span class="dropdown-text">In-class Exercise 1</span></a>
   </li>  
-        <li class="dropdown-header">In-class Exercise 2</li>
+        <li>
+    <a class="dropdown-item" href="../Listing.html">
+ <span class="dropdown-text">In-class Exercise 2</span></a>
+  </li>  
         <li class="dropdown-header">In-class Exercise 3</li>
         <li class="dropdown-header">In-class Exercise 4</li>
         <li class="dropdown-header">In-class Exercise 5</li>
@@ -284,6 +288,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Yang Jingyuan </p>
+          </div>
+  </div>
     
   
     
@@ -374,8 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mpsz <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"data/geospatial"</span>, <span class="at">layer =</span> <span class="st">"MP14_SUBZONE_WEB_PL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `MP14_SUBZONE_WEB_PL' from data source 
-  `E:\SMU\Class\Special Term\ISSS624 Applied Geospatial Analytics\Yang621435\ISSS624\Hands-on_Ex1\data\geospatial' 
-  using driver `ESRI Shapefile'
+  `E:\jyyang621\ISSS624\Hands-on_Ex1\data\geospatial' using driver `ESRI Shapefile'
 Simple feature collection with 323 features and 15 fields
 Geometry type: MULTIPOLYGON
 Dimension:     XY
@@ -393,8 +402,7 @@ Projected CRS: SVY21</code></pre>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">layer =</span> <span class="st">"CyclingPath"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `CyclingPath' from data source 
-  `E:\SMU\Class\Special Term\ISSS624 Applied Geospatial Analytics\Yang621435\ISSS624\Hands-on_Ex1\data\geospatial' 
-  using driver `ESRI Shapefile'
+  `E:\jyyang621\ISSS624\Hands-on_Ex1\data\geospatial' using driver `ESRI Shapefile'
 Simple feature collection with 1625 features and 2 fields
 Geometry type: LINESTRING
 Dimension:     XY
@@ -417,7 +425,7 @@ Projected CRS: SVY21</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>preschool <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/pre-schools-location-kml.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `PRESCHOOLS_LOCATION' from data source 
-  `E:\SMU\Class\Special Term\ISSS624 Applied Geospatial Analytics\Yang621435\ISSS624\Hands-on_Ex1\data\geospatial\pre-schools-location-kml.kml' 
+  `E:\jyyang621\ISSS624\Hands-on_Ex1\data\geospatial\pre-schools-location-kml.kml' 
   using driver `KML'
 Simple feature collection with 1359 features and 2 fields
 Geometry type: POINT

@@ -1,5 +1,8 @@
 ---
 title: "Ex1 Spatial Weights and Applications"
+tags: 
+  - In-class Exercise
+author: "Yang Jingyuan"
 editor: visual
 ---
 

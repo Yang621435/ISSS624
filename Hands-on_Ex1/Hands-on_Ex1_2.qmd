@@ -1,5 +1,8 @@
 ---
 title: "2 Choropleth Mapping with R"
+tags: 
+  - Hands-on Exercise
+author: "Yang Jingyuan"
 editor: visual
 ---
 
