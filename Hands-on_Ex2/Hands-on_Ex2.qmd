@@ -5,7 +5,7 @@ author: "Yang Jingyuan"
 editor: visual
 ---
 
-Nov 24, 2022
+Nov 24, 2022 [Original Website](https://r4gdsa.netlify.app/chap04.html)
 
 ## Overview
 
@@ -477,6 +477,8 @@ This is follow by centering the local Moran's around the mean.
 C_mI <- localMI[,1] - mean(localMI[,1])    
 ```
 
+> Think: Why C_mI needs to -mean?
+
 Next, we will set a statistical significance level for the local Moran.
 
 ```{r}
@@ -486,9 +488,9 @@ signif <- 0.05
 These four command lines define the high-high, low-low, low-high and high-low categories.
 
 ```{r}
-quadrant[DV >0 & C_mI>0] <- 4      
-quadrant[DV <0 & C_mI<0] <- 1      
-quadrant[DV <0 & C_mI>0] <- 2
+quadrant[DV >0 & C_mI>0] <- 4 # High-High Cluster     
+quadrant[DV <0 & C_mI<0] <- 2 # Low-Low Cluster     
+quadrant[DV <0 & C_mI>0] <- 1
 quadrant[DV >0 & C_mI<0] <- 3
 ```
 
