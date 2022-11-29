@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Ex1 - Spatial Weights and Applications</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Listing.qmd">
+    <a class="dropdown-item" href="../In-class_Ex2/In-class_Ex2.html">
  <span class="dropdown-text">In-class Exercise 2</span></a>
   </li>  
         <li class="dropdown-header">In-class Exercise 3</li>
@@ -350,8 +350,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="importing-geospatial-data" class="level3">
 <h3 class="anchored" data-anchor-id="importing-geospatial-data">Importing Geospatial Data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gbna2 <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"data/geospatial"</span>, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">layer =</span> <span class="st">"geoBoundaries-NGA-ADM2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"data/geospatial"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">layer =</span> <span class="st">"geoBoundaries-NGA-ADM2"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">crs =</span> <span class="dv">4326</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `geoBoundaries-NGA-ADM2' from data source 
   `E:\jyyang621\ISSS624\Take-home_Ex1\data\geospatial' using driver `ESRI Shapefile'

@@ -9,7 +9,8 @@
     "Hands-on_Ex1.html": "ec4c8231"
   },
   "Hands-on_Ex1/Hands-on_Ex1.qmd": {
-    "Hands-on_Ex1.html": "32133e6f"
+    "Hands-on_Ex1.html": "32133e6f",
+    "Hands-on_Ex1.docx": "c0139a5d"
   },
   "Hands-on_Ex2/Hands-on_Ex2.qmd": {
     "Hands-on_Ex2.html": "4774dc01"
@@ -40,5 +41,8 @@
   },
   "Hands-on_Ex1/111.qmd": {
     "111.html": "fad9a9e3"
+  },
+  "In-class_Ex2/In-class_Ex2.qmd": {
+    "In-class_Ex2.html": "ab696981"
   }
 }

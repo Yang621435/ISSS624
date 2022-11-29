@@ -68,8 +68,9 @@ pacman::p_load(sf, tidyverse)
 ### Importing Geospatial Data
 
 ```{r}
-gbna2 <- st_read(dsn = "data/geospatial", 
-                layer = "geoBoundaries-NGA-ADM2")
+wp <- st_read(dsn = "data/geospatial", 
+              layer = "geoBoundaries-NGA-ADM2",
+              crs = 4326) 
 ```
 
 ```{r}
