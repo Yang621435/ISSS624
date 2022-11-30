@@ -7,9 +7,11 @@ execute:
 editor: visual
 ---
 
-November 27, 2022
+November 30, 2022
 
 ## Overview
+
+![](images/paste-14A65FB3.png)
 
 For this study, we will use the following packages.
 
@@ -244,7 +246,6 @@ Before you end this section, please remember to delete away all the raw data. No
 ## Visualising the spatial dsitribution of water points
 
 ```{r}
-#| eval: false
 nga_wp <- read_rds("data/geospatial/nga_wp.rds")
 total <- qtm(nga_wp, "total wpt")
 wp_functional <- qtm(nga_wp, "wpt functional")
@@ -263,7 +264,6 @@ Plot maps to show the spatial distribution of functional and non-functional wate
 Now lets narrow down to reveal spatial patterns of Not Functional water points
 
 ```{r}
-#| eval: false
 equal <- tm_shape(nga_wp) +
   tm_fill("wpt non-functional",
           n = 5,
@@ -287,19 +287,16 @@ tmap_arrange(equal,
 ### **Cluster and Outlier Analysis**
 
 ```{r}
-#| eval: false
 wm_q <- poly2nb(nga_wp, 
                 queen=TRUE)
 summary(wm_q)
 ```
 
 ```{r}
-#| eval: false
 set.ZeroPolicyOption(TRUE)
 ```
 
 ```{r}
-#| eval: false
 rswm_q <- nb2listw(wm_q, 
                    style="W", 
                    zero.policy = TRUE)
@@ -309,20 +306,16 @@ rswm_q
 ## Computing Local Moron\'s I
 
 ```{r}
-#| eval: false
-# fips <- order(nga_wp$shapeName)
 localMI <- localmoran(nga_wp$`wpt non-functional`, rswm_q)
 head(localMI)
 ```
 
 ```{r}
-#| eval: false
 nga.localMI <- cbind(nga_wp,localMI) %>%
   rename(Pr.Ii = Pr.z....E.Ii..)
 ```
 
 ```{r}
-#| eval: false
 tm_shape(nga.localMI) +
   tm_fill(col = "Ii", 
           style = "pretty",
@@ -332,7 +325,6 @@ tm_shape(nga.localMI) +
 ```
 
 ```{r}
-#| eval: false
 tm_shape(nga.localMI) +
   tm_fill(col = "Pr.Ii", 
           breaks=c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
@@ -344,7 +336,6 @@ tm_shape(nga.localMI) +
 ## Mapping both
 
 ```{r}
-#| eval: false
 localMI.map <- tm_shape(nga.localMI) +
   tm_fill(col = "Ii", 
           style = "pretty", 
@@ -364,7 +355,6 @@ tmap_arrange(localMI.map, pvalue.map, ncol=2)
 ### Creating a LISA Cluster Map
 
 ```{r}
-#| eval: false
 nci <- moran.plot(nga_wp$`wpt non-functional`, rswm_q,
                   labels=as.character(nga_wp$shapeName), 
                   xlab="Non-Functional waterpoints", 
@@ -372,7 +362,6 @@ nci <- moran.plot(nga_wp$`wpt non-functional`, rswm_q,
 ```
 
 ```{r}
-#| eval: false
 nga_wp$Z.nonfunc <- scale(nga_wp$`wpt non-functional`) %>% 
   as.vector 
 nci2 <- moran.plot(nga_wp$Z.nonfunc, rswm_q,
@@ -382,7 +371,6 @@ nci2 <- moran.plot(nga_wp$Z.nonfunc, rswm_q,
 ```
 
 ```{r}
-#| eval: false
 quadrant <- vector(mode="numeric",length=nrow(localMI))
 nga_wp$lag_non_func_points <- lag.listw(rswm_q, nga_wp$`wpt non-functional`)
 DV <- nga_wp$lag_non_func_points - mean(nga_wp$lag_non_func_points)     
@@ -398,7 +386,6 @@ quadrant[localMI[,5]>signif] <- 0
 ### Plotting LISA MAP
 
 ```{r}
-#| eval: false
 nga.localMI$quadrant <- quadrant
 colors <- c("#ffffff", "#2c7bb6", "#abd9e9", "#fdae61", "#d7191c")
 clusters <- c("insignificant", "low-low", "low-high", "high-low", "high-high")
@@ -416,7 +403,6 @@ tm_shape(nga.localMI) +
 For effective interpretation, it is better to plot both the local Moran\'s I values map and its corresponding p-values map next to each other.
 
 ```{r}
-#| eval: false
 nonfunc <- qtm(nga_wp, "wpt non-functional")
 
 nga.localMI$quadrant <- quadrant
@@ -437,7 +423,6 @@ tmap_arrange(nonfunc, LISAmap,
 ```
 
 ```{r}
-#| eval: false
 tmap_arrange(localMI.map, pvalue.map, ncol=2)
 ```
 
@@ -454,7 +439,6 @@ The analysis consists of three steps:
 ### **Deriving distance based weight matrix**
 
 ```{r}
-#| eval: false
 longitude <- map_dbl(nga_wp$geometry, ~st_centroid(.x)[[1]])
 latitude <- map_dbl(nga_wp$geometry, ~st_centroid(.x)[[2]])
 coords <- cbind(longitude, latitude)
@@ -465,13 +449,11 @@ summary(k1dists)
 ```
 
 ```{r}
-#| eval: false
 wm_d62 <- dnearneigh(coords, 0, 62, longlat = TRUE)
 wm_d62
 ```
 
 ```{r}
-#| eval: false
 wm62_lw <- nb2listw(wm_d62, style = 'B')
 summary(wm62_lw)
 ```
@@ -479,13 +461,11 @@ summary(wm62_lw)
 ### **Adaptive Distance**
 
 ```{r}
-#| eval: false
 knn <- knn2nb(knearneigh(coords, k=8))
 knn
 ```
 
 ```{r}
-#| eval: false
 knn_lw <- nb2listw(knn, style = 'B')
 summary(knn_lw)
 ```
@@ -495,8 +475,6 @@ summary(knn_lw)
 Computing GI statistics with fixed distance
 
 ```{r}
-#| eval: false
-# fips <- order(nga_wp$shapeName)
 gi.fixed <- localG(nga_wp$`wpt non-functional`, wm62_lw)
 nga_wp.gi <- cbind(nga_wp, as.matrix(gi.fixed)) %>%
   rename(gstat_fixed = as.matrix.gi.fixed.)
@@ -505,7 +483,6 @@ nga_wp.gi <- cbind(nga_wp, as.matrix(gi.fixed)) %>%
 Mapping fixed distance with weights
 
 ```{r}
-#| eval: false
 nonfunc <- qtm(nga_wp, "wpt non-functional")
 
 Gimap <-tm_shape(nga_wp.gi) +
@@ -521,8 +498,6 @@ tmap_arrange(nonfunc, Gimap, asp=1, ncol=2)
 Computing adaptive distance
 
 ```{r}
-#| eval: false
-# fips <- order(nga_wp$shapeName)
 gi.adaptive <- localG(nga_wp$`wpt non-functional`, knn_lw)
 nga_wp.gi <- cbind(nga_wp, as.matrix(gi.adaptive)) %>%
   rename(gstat_adaptive = as.matrix.gi.adaptive.)
@@ -531,7 +506,6 @@ nga_wp.gi <- cbind(nga_wp, as.matrix(gi.adaptive)) %>%
 Mapping adaptive distance with weights
 
 ```{r}
-#| eval: false
 nonfunc <- qtm(nga_wp, "wpt non-functional")
 
 Gimap <- tm_shape(nga_wp.gi) + 
