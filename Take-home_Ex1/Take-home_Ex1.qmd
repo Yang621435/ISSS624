@@ -11,7 +11,17 @@ November 27, 2022
 
 ## Overview
 
-This is take-home exercise 1.
+For this study, we will use the following packages.
+
+-   [`sf`](https://cloud.r-project.org/web/packages/sf/) - Support for simple features, a standardized way to encode spatial vector data. Binds to \'GDAL\' for reading and writing data, to \'GEOS\' for geometrical operations, and to \'PROJ\' for projection conversions and datum transformations. Uses by default the \'s2\' package for spherical geometry operations on ellipsoidal (long/lat) coordinates.
+
+-   [`tidyverse`](https://www.tidyverse.org/packages/) - Loading the core tidyverse packages which will be used for data wrangling and visualisation.
+
+-   [`tmap`](https://cran.r-project.org/web/packages/tmap/) - Thematic maps are geographical maps in which spatial data distributions are visualized. This package offers a flexible, layer-based, and easy to use approach to create thematic maps, such as choropleths and bubble maps.
+
+-   [`spdep`](https://cran.r-project.org/web/packages/spdep/) - A collection of functions to create spatial weights matrix objects from polygon \'contiguities\', from point patterns by distance and tessellations, for summarizing these objects, and for permitting their use in spatial data analysis, including regional aggregation by minimum spanning tree; a collection of tests for spatial \'autocorrelation\'.
+
+-   [`patchwork`](https://patchwork.data-imaginist.com/) - Combine separate ggplots into the same graphic.
 
 ## Setting the Scene
 
@@ -114,6 +124,8 @@ Thing to learn from the code chunk above.
 -   `st_read()` of **sf** package is used to import *nga_admbnda_adm2_osgof_20190417* shapefile into R environment and save the imported geospatial data into simple feature data table.
 
 ## Data Wrangling
+
+The practice of correcting or deleting inaccurate, damaged, improperly formatted, duplicate, or incomplete data from a dataset is known as **data wrangling**. There are numerous ways for data to be duplicated or incorrectly categorized when merging multiple data sources. We willl now proceed to ensure our data is cleaned before conducting our analysis.
 
 ### Recoding NA values into string
 
@@ -242,19 +254,298 @@ unknown <- qtm(nga_wp, "wpt unknown")
 tmap_arrange(total, wp_functional, wp_nonfunctional, unknown, asp=1, ncol=2)
 ```
 
-## Grading Criteria
+# Outliers / Clusters Analysis
 
-This exercise will be graded by using the following criteria:
+## **Thematic Mapping**
 
--   **Geospatial Data Wrangling (20 marks):** This is an important aspect of geospatial analytics. You will be assessed on your ability to employ appropriate R functions from various R packages specifically designed for modern data science such as readr, tidyverse (tidyr, dplyr, ggplot2), sf just to mention a few of them, to perform the entire geospatial data wrangling processes, including. This is not limited to data import, data extraction, data cleaning and data transformation. Besides assessing your ability to use the R functions, this criterion also includes your ability to clean and derive appropriate variables to meet the analysis need. (Warning: All data are like vast grassland full of land mines. Your job is to clear those mines and not to step on them).
+Plot maps to show the spatial distribution of functional and non-functional water point rate at LGA level by using appropriate thematic mapping technique provided by tmap package.
 
--   **Geospatial Analysis (30 marks):** In this exercise, you are expected to use the appropriate thematic and analytics mapping techniques and R functions introduced in class to analysis the geospatial data prepared. You will be assessed on your ability to derive analytical maps by using appropriate rate mapping techniques.
+Now lets narrow down to reveal spatial patterns of Not Functional water points
 
--   **Geovisualisation (20 marks):** In this section, you will be assessed on your ability to communicate the complex spatial statistics results in business friendly visual representations. This course is geospatial centric, hence, it is important for you to demonstrate your competency in using appropriate geovisualisation techniques to reveal and communicate the findings of your analysis.
+```{r}
+#| eval: false
+equal <- tm_shape(nga_wp) +
+  tm_fill("wpt non-functional",
+          n = 5,
+          style = "equal") +
+  tm_borders(alpha = 0.5) +
+  tm_layout(main.title = "Equal interval classification")
 
--   **Reproducibility (20 marks):** This is an important learning outcome of this exercise. You will be assessed on your ability to provide a comprehensive documentation of the analysis procedures in the form of code chunks of RMarkdown. It is important to note that it is not enough by merely providing the code chunk without any explanation on the purpose and R function(s) used.
+quantile <- tm_shape(nga_wp) +
+  tm_fill("wpt non-functional",
+          n = 5,
+          style = "quantile") +
+  tm_borders(alpha = 0.5) +
+  tm_layout(main.title = "Equal quantile classification")
 
--   **Bonus (10 marks):** Demonstrate your ability to employ methods beyond what you had learned in class to gain insights from the data. The methods used must be geospatial in nature.
+tmap_arrange(equal, 
+             quantile, 
+             asp=1, 
+             ncol=2)
+```
+
+### **Cluster and Outlier Analysis**
+
+```{r}
+#| eval: false
+wm_q <- poly2nb(nga_wp, 
+                queen=TRUE)
+summary(wm_q)
+```
+
+```{r}
+#| eval: false
+set.ZeroPolicyOption(TRUE)
+```
+
+```{r}
+#| eval: false
+rswm_q <- nb2listw(wm_q, 
+                   style="W", 
+                   zero.policy = TRUE)
+rswm_q
+```
+
+## Computing Local Moron\'s I
+
+```{r}
+#| eval: false
+# fips <- order(nga_wp$shapeName)
+localMI <- localmoran(nga_wp$`wpt non-functional`, rswm_q)
+head(localMI)
+```
+
+```{r}
+#| eval: false
+nga.localMI <- cbind(nga_wp,localMI) %>%
+  rename(Pr.Ii = Pr.z....E.Ii..)
+```
+
+```{r}
+#| eval: false
+tm_shape(nga.localMI) +
+  tm_fill(col = "Ii", 
+          style = "pretty",
+          palette = "RdBu",
+          title = "local moran statistics") +
+  tm_borders(alpha = 0.5)
+```
+
+```{r}
+#| eval: false
+tm_shape(nga.localMI) +
+  tm_fill(col = "Pr.Ii", 
+          breaks=c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
+          palette="-Blues", 
+          title = "local Moran's I p-values") +
+  tm_borders(alpha = 0.5)
+```
+
+## Mapping both
+
+```{r}
+#| eval: false
+localMI.map <- tm_shape(nga.localMI) +
+  tm_fill(col = "Ii", 
+          style = "pretty", 
+          title = "local moran statistics") +
+  tm_borders(alpha = 0.5)
+
+pvalue.map <- tm_shape(nga.localMI) +
+  tm_fill(col = "Pr.Ii", 
+          breaks=c(-Inf, 0.001, 0.01, 0.05, 0.1, Inf),
+          palette="-Blues", 
+          title = "local Moran's I p-values") +
+  tm_borders(alpha = 0.5)
+
+tmap_arrange(localMI.map, pvalue.map, ncol=2)
+```
+
+### Creating a LISA Cluster Map
+
+```{r}
+#| eval: false
+nci <- moran.plot(nga_wp$`wpt non-functional`, rswm_q,
+                  labels=as.character(nga_wp$shapeName), 
+                  xlab="Non-Functional waterpoints", 
+                  ylab="Spatially Lag Non-functional waterpoints")
+```
+
+```{r}
+#| eval: false
+nga_wp$Z.nonfunc <- scale(nga_wp$`wpt non-functional`) %>% 
+  as.vector 
+nci2 <- moran.plot(nga_wp$Z.nonfunc, rswm_q,
+                   labels=as.character(nga_wp$shapeName),
+                   xlab="z-no functional points", 
+                   ylab="Spatially Lag non functional points")
+```
+
+```{r}
+#| eval: false
+quadrant <- vector(mode="numeric",length=nrow(localMI))
+nga_wp$lag_non_func_points <- lag.listw(rswm_q, nga_wp$`wpt non-functional`)
+DV <- nga_wp$lag_non_func_points - mean(nga_wp$lag_non_func_points)     
+LM_I <- localMI[,1] - mean(localMI[,1])    
+signif <- 0.05       
+quadrant[DV <0 & LM_I>0] <- 1
+quadrant[DV >0 & LM_I<0] <- 2
+quadrant[DV <0 & LM_I<0] <- 3  
+quadrant[DV >0 & LM_I>0] <- 4      
+quadrant[localMI[,5]>signif] <- 0
+```
+
+### Plotting LISA MAP
+
+```{r}
+#| eval: false
+nga.localMI$quadrant <- quadrant
+colors <- c("#ffffff", "#2c7bb6", "#abd9e9", "#fdae61", "#d7191c")
+clusters <- c("insignificant", "low-low", "low-high", "high-low", "high-high")
+
+tm_shape(nga.localMI) +
+  tm_fill(col = "quadrant", 
+          style = "cat", 
+          palette = colors[c(sort(unique(quadrant)))+1], 
+          labels = clusters[c(sort(unique(quadrant)))+1],
+          popup.vars = c("")) +
+  tm_view(set.zoom.limits = c(11,17)) +
+  tm_borders(alpha=0.5)
+```
+
+For effective interpretation, it is better to plot both the local Moran\'s I values map and its corresponding p-values map next to each other.
+
+```{r}
+#| eval: false
+nonfunc <- qtm(nga_wp, "wpt non-functional")
+
+nga.localMI$quadrant <- quadrant
+colors <- c("#ffffff", "#2c7bb6", "#abd9e9", "#fdae61", "#d7191c")
+clusters <- c("insignificant", "low-low", "low-high", "high-low", "high-high")
+
+LISAmap <- tm_shape(nga.localMI) +
+  tm_fill(col = "quadrant", 
+          style = "cat", 
+          palette = colors[c(sort(unique(quadrant)))+1], 
+          labels = clusters[c(sort(unique(quadrant)))+1],
+          popup.vars = c("")) +
+  tm_view(set.zoom.limits = c(11,17)) +
+  tm_borders(alpha=0.5)
+
+tmap_arrange(nonfunc, LISAmap, 
+             asp=1, ncol=2)
+```
+
+```{r}
+#| eval: false
+tmap_arrange(localMI.map, pvalue.map, ncol=2)
+```
+
+## Hotspot Areas Analysis
+
+The analysis consists of three steps:
+
+-   Deriving spatial weight matrix
+
+-   Computing Gi statistics
+
+-   Mapping Gi statistics
+
+### **Deriving distance based weight matrix**
+
+```{r}
+#| eval: false
+longitude <- map_dbl(nga_wp$geometry, ~st_centroid(.x)[[1]])
+latitude <- map_dbl(nga_wp$geometry, ~st_centroid(.x)[[2]])
+coords <- cbind(longitude, latitude)
+
+k1 <- knn2nb(knearneigh(coords))
+k1dists <- unlist(nbdists(k1, coords, longlat = TRUE))
+summary(k1dists)
+```
+
+```{r}
+#| eval: false
+wm_d62 <- dnearneigh(coords, 0, 62, longlat = TRUE)
+wm_d62
+```
+
+```{r}
+#| eval: false
+wm62_lw <- nb2listw(wm_d62, style = 'B')
+summary(wm62_lw)
+```
+
+### **Adaptive Distance**
+
+```{r}
+#| eval: false
+knn <- knn2nb(knearneigh(coords, k=8))
+knn
+```
+
+```{r}
+#| eval: false
+knn_lw <- nb2listw(knn, style = 'B')
+summary(knn_lw)
+```
+
+### **Computing GI Statistics**
+
+Computing GI statistics with fixed distance
+
+```{r}
+#| eval: false
+# fips <- order(nga_wp$shapeName)
+gi.fixed <- localG(nga_wp$`wpt non-functional`, wm62_lw)
+nga_wp.gi <- cbind(nga_wp, as.matrix(gi.fixed)) %>%
+  rename(gstat_fixed = as.matrix.gi.fixed.)
+```
+
+Mapping fixed distance with weights
+
+```{r}
+#| eval: false
+nonfunc <- qtm(nga_wp, "wpt non-functional")
+
+Gimap <-tm_shape(nga_wp.gi) +
+  tm_fill(col = "gstat_fixed", 
+          style = "pretty",
+          palette="-RdBu",
+          title = "local Gi") +
+  tm_borders(alpha = 0.5)
+
+tmap_arrange(nonfunc, Gimap, asp=1, ncol=2)
+```
+
+Computing adaptive distance
+
+```{r}
+#| eval: false
+# fips <- order(nga_wp$shapeName)
+gi.adaptive <- localG(nga_wp$`wpt non-functional`, knn_lw)
+nga_wp.gi <- cbind(nga_wp, as.matrix(gi.adaptive)) %>%
+  rename(gstat_adaptive = as.matrix.gi.adaptive.)
+```
+
+Mapping adaptive distance with weights
+
+```{r}
+#| eval: false
+nonfunc <- qtm(nga_wp, "wpt non-functional")
+
+Gimap <- tm_shape(nga_wp.gi) + 
+  tm_fill(col = "gstat_adaptive", 
+          style = "pretty", 
+          palette="-RdBu", 
+          title = "local Gi") + 
+  tm_borders(alpha = 0.5)
+
+tmap_arrange(nonfunc, 
+             Gimap, 
+             asp=1, 
+             ncol=2)
+```
 
 ## Submission Instructions
 
