@@ -179,7 +179,7 @@ Now, you have the tidy sf data table subsequent analysis. We will save the sf da
 write_rds(nga_wp, "data/geospatial/nga_wp.rds")
 ```
 
-Before you end this section, please remember to delete away all the raw data. Notice that the only data file left is *nga_wp.rds* and it\'s file size is aroung 2.1MB.
+Before you end this section, please remember to delete away all the raw data. Notice that the only data file left is *nga_wp.rds* and it's file size is aroung 2.1MB.
 
 ## Visualising the spatial dsitribution of water points
 
