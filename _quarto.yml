@@ -16,11 +16,12 @@ website:
             href: Hands-on_Ex1/Hands-on_Ex1_2.qmd
           - text: Ex2 - Global and Local Measures of Spatial Autocorrelation
             href: Hands-on_Ex2/Hands-on_Ex2.qmd
-          - text: Hands-on Exercise 3
+          - text: Ex3 - Geographical Segmentation with Spatially Constrained Clustering Techniques
             href: Hands-on_Ex3/Hands-on_Ex3.qmd
           - text: Hands-on Exercise 4
             href: Hands-on_Ex4/Hands-on_Ex4.qmd
           - text: Hands-on Exercise 5
+            href: Hands-on_Ex5/Hands-on_Ex5.qmd
       - text: In-class Exercises
         menu: 
           - text: Ex1 - Spatial Weights and Applications
@@ -28,15 +29,17 @@ website:
           - text: In-class Exercise 2
             href: In-class_Ex2/In-class_Ex2.qmd
           - text: In-class Exercise 3
+            href: In-class_Ex3/In-class_Ex3.qmd
           - text: In-class Exercise 4
-          - text: In-class Exercise 5
+            href: In-class_Ex4/In-class_Ex4.qmd
       - text: Take-home Exercises
         menu: 
           - text: Take-home Exercise 1
             href: Take-home_Ex1/Take-home_Ex1.qmd
           - text: Take-home Exercise 2
+            href: Take-home_Ex2/Take-home_Ex2.qmd
           - text: Take-home Exercise 3
-          - text: Take-home Exercise 4
+            href: Take-home_Ex3/Take-home_Ex3.qmd
     right:
       - href: index.qmd
         text: Home
