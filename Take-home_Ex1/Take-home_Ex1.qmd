@@ -7,7 +7,7 @@ execute:
 editor: visual
 ---
 
-November 30, 2022
+November 30, 2022 Take-home Exercise 1
 
 ## Overview
 
@@ -250,10 +250,10 @@ nga_wp <- read_rds("data/geospatial/nga_wp.rds")
 ```
 
 ```{r}
-total <- qtm(nga_wp, "total wpt")
-wp_functional <- qtm(nga_wp, "wpt functional")
-wp_nonfunctional <- qtm(nga_wp, "wpt non-functional")
-unknown <- qtm(nga_wp, "wpt unknown")
+total <- qtm(nga_wp, fill = "pct_functional", fill.palette = "RdPu", fill.title = "total wpt", borders = "black", title = "") + tm_legend(legend.height = 0.25)
+wp_functional <- qtm(nga_wp, fill = "pct_functional", fill.palette = "RdPu", fill.title = "wpt functional", borders = "black", title = "") + tm_legend(legend.height = 0.25)
+wp_nonfunctional <- qtm(nga_wp, fill = "pct_functional", fill.palette = "RdPu", fill.title = "wpt non-functional", borders = "black", title = "") + tm_legend(legend.height = 0.25)
+unknown <- qtm(nga_wp, fill = "pct_functional", fill.palette = "RdPu", fill.title = "wpt unknown", borders = "black", title = "") + tm_legend(legend.height = 0.25)
 
 tmap_arrange(total, wp_functional, wp_nonfunctional, unknown, asp=1, ncol=2)
 ```

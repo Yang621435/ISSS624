@@ -1,11 +1,15 @@
 ---
-title: "5  Geographical Segmentation with Spatially Constrained Clustering Techniques"
+title: "5 Geographical Segmentation with Spatially Constrained Clustering Techniques"
 subtitle: "Hands-on Exercise 3"
 author: "Yang Jingyuan"
+format: html
+execute: 
+  warning: false
+  message: false
 editor: visual
 ---
 
-Dec 2, 12 [Original Website](https://r4gdsa.netlify.app/chap05.html)
+Dec 2, 12 Hands-on Exercise 3
 
 ## 5.1 Overview
 
@@ -94,6 +98,8 @@ In this section, you will import Myanmar Township Boundary GIS data and its asso
 The Myanmar Township Boundary GIS data is in ESRI shapefile format. It will be imported into R environment by using the [*st_read()*](https://www.rdocumentation.org/packages/sf/versions/0.7-2/topics/st_read) function of **sf**.
 
 The code chunks used are shown below:
+
+> Note: If add `#| echo: false` to the code chunk, the code chunk won't run.
 
 ```{r}
 shan_sf <- st_read(dsn = "data/geospatial", 
@@ -332,7 +338,8 @@ Before we perform cluster analysis, it is important for us to ensure that the cl
 In this section, you will learn how to use [*corrplot.mixed()*](https://cran.r-project.org/web/packages/corrplot/corrplot.pdf) function of [**corrplot**](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) package to visualise and analyse the correlation of the input variables.
 
 ```{r}
-cluster_vars.cor = cor(ict_derived[,12:17])
+cluster_vars.cor = cor(ict_derived[,12:17]) 
+# This means only analysis with column 12-17, and save it as an object.
 corrplot.mixed(cluster_vars.cor,
          lower = "ellipse", 
                upper = "number",

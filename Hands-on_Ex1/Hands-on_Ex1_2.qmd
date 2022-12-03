@@ -5,7 +5,7 @@ author: "Yang Jingyuan"
 editor: visual
 ---
 
-November 18, 2022 [Original Webpage](https://r4gdsa.netlify.app/chap02.html)
+Nov 18, 2022 Hands-on Exercise 1
 
 ## Overview
 
