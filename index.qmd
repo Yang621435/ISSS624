@@ -5,6 +5,7 @@ listing:
     - Hands-on_Ex1
     - Hands-on_Ex2
     - Hands-on_Ex3
+    - Hands-on_Ex4
     - In-class_Ex1
     - Take-home_Ex1
     - Take-home_Ex2
