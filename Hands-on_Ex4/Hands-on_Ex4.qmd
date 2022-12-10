@@ -2,6 +2,9 @@
 title: "6  Calibrating Hedonic Pricing Model for Private Highrise Property with GWR Method"
 subtitle: "Hands-on Exercise 4"
 author: "Yang Jingyuan"
+code-fold: show
+title-block-banner: true
+listing: "Hands-on"
 editor: visual
 ---
 
@@ -54,13 +57,13 @@ The R packages needed for this exercise are as follows:
 The code chunks below installs and launches these R packages into R environment.
 
 ```{r}
-packages = c('olsrr', 'corrplot', 'ggpubr', 'sf', 'spdep', 'GWmodel', 'tmap', 'tidyverse', 'gtsummary')
-for (p in packages){
-  if(!require(p, character.only = T)){
-    install.packages(p)
-  }
-  library(p,character.only = T)
-}
+# packages = c('olsrr', 'corrplot', 'ggpubr', 'sf', 'spdep', 'GWmodel', 'tmap', 'tidyverse', 'gtsummary')
+# for (p in packages){
+#   if(!require(p, character.only = T)){
+#     install.packages(p)
+#   }
+#   library(p,character.only = T)
+# }
 ```
 
 Or this chunk below.
