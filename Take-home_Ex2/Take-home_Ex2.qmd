@@ -267,7 +267,7 @@ nga <- nga %>%
   mutate(`pct_ruralWP` = `ruralWP`/`WPCount`)
 ```
 
-Noticed there are NaN value in functional/non functional ratios, percentage of handpump, usageCap less than 1k, usageCap equal to 1k and water point at rural areas, which were because there are regions with zero water points. Since the regions with zero water points don\'t help on our following analysis, we will remove them from the *nga* dataframe.
+Noticed there are NaN value in functional/non functional ratios, percentage of handpump, usageCap less than 1k, usageCap equal to 1k and water point at rural areas, which were because there are regions with zero water points. Since the regions with zero water points don't help on our following analysis, we will remove them from the *nga* dataframe.
 
 The code chunk below removes the regions with zero water points.
 
@@ -632,7 +632,7 @@ ac <- function(x) {
 map_dbl(m, ac)
 ```
 
-With reference to the output above, we can see that Ward\'s method provides the strongest clustering structure among the four methods assessed. Hence, in the subsequent analysis, only Ward\'s method will be used.
+With reference to the output above, we can see that Ward's method provides the strongest clustering structure among the four methods assessed. Hence, in the subsequent analysis, only Ward's method will be used.
 
 ## **Determining Optimal Clusters**
 
@@ -1198,4 +1198,6 @@ tmap_arrange(ngeoclust.map, gcluster.map,
 tmap_arrange(hclust.map, shclust.map, ngeoclust.map, gcluster.map, ncol = 2, asp = 1)
 ```
 
-From the analysis, we can clearly identify that using Hierarchical and Wand-like clustering with the LGA boundaries are more fragmented as compared to other clusters which are less fragmented. SKATER Clustering algorithm still provide more clear-cut clustering however when we need to focus on a particular problem in a specific small area, SKATER method may not reflect the best results as clear-cut clustering may be missed some small details.
+The importance of spatial autocorrelation is that it helps define the importance of spatial features in influencing a given object in space, and whether there is a clear relationship between objects and spatial attributes. In this exercise scenario, it is the distribution of water resources in Nigeria, a poor country. The use of LISA, Moran's I and Gi maps allowed us to delve deeper into the geospatial relationships of the various regions of the country, not only clustering similar objects with other similar objects, but also speaking of the degree of relatedness or similarity. It helps to find hidden patterns and relationships. It has many applications in ecology and demography.
+
+From the analysis, we can clearly see that using hierarchical clustering with LGA boundaries and Wand-like clustering is more fragmented compared to other less fragmented clusters. The SKATER clustering algorithm still provides clearer clusters, but when we need to focus on a specific problem in a specific small area, the SKATER method may not reflect the best results because the clear clusters may miss some small details.
