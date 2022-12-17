@@ -9,6 +9,7 @@ listing:
     - In-class_Ex1
     - Take-home_Ex1
     - Take-home_Ex2
+    - In-class_Ex5
   type: grid
   categories: true
   sort: 
