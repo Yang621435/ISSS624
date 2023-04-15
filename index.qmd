@@ -1,27 +1,23 @@
 ---
-title: "ISSS624 Applied Geospatial Analytics"
+title: "Yang Jingyuan"
 listing: 
   contents: 
-    - Hands-on_Ex1
-    - Hands-on_Ex2
-    - Hands-on_Ex3
-    - Hands-on_Ex4
-    - In-class_Ex1
-    - Take-home_Ex1
-    - Take-home_Ex2
-    - In-class_Ex5
+    - ISSS624
+    - ISSS608
   type: grid
   categories: true
   sort: 
     - "title asc"
 ---
 
-## Welcome to [ISSS624](https://isss624-ay2022-23nov.netlify.app/) Geospatial Analytics Applications!
-
-In this webpage, I am going to share with you my learning journey of geospatial analytics.
-
-Instructor: [Dr. Kam Tin Seong](https://faculty.smu.edu.sg/profile/kam-tin-seong-486), Associate Professor of Information Systems (Practice)
-
-Student: Yang Jingyuan
+## Welcome to my home page!
 
 E-mail: jyyang.2022\@mitb.smu.edu.sg
+
+Hello everyone! My name is Yang Jingyuan. I have a deep passion for various activities that both challenge my mind and allow me to express my creativity. One of my favorite hobbies is playing Go, an ancient board game that demands strategic thinking and patience. I find it to be an excellent way to sharpen my analytical skills while engaging in a thrilling mental battle with my opponents.
+
+In addition to Go, I'm also enthusiastic about music, particularly playing the flute. The soothing and melodic sounds of the flute have always captivated me, and I have found playing this beautiful instrument to be a deeply rewarding and meditative experience. Practicing the flute allows me to express my emotions through music, and I'm always eager to learn new pieces and techniques to further enhance my skills.
+
+Lastly, I'm a huge fan of basketball, both as a player and a spectator. The fast-paced action, teamwork, and incredible athleticism involved in the sport keep me on the edge of my seat during games. Playing basketball helps me stay active and fit, while also providing a fun way to bond with friends and teammates. It's a fantastic way to unwind after a busy day and let off some steam.
+
+I'm always open to meeting new people and making connections, so please feel free to reach out and share your own interests or experiences. Let's explore our passions together and learn from one another!

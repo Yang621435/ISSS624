@@ -1,0 +1,13 @@
+---
+title: "ISSS624 Applied Geospatial Analytics"
+---
+
+## Welcome to [ISSS624](https://isss624-ay2022-23nov.netlify.app/) Geospatial Analytics Applications!
+
+In this webpage, I am going to share with you my learning journey of geospatial analytics.
+
+Instructor: [Dr. Kam Tin Seong](https://faculty.smu.edu.sg/profile/kam-tin-seong-486), Associate Professor of Information Systems (Practice)
+
+Student: Yang Jingyuan
+
+E-mail: jyyang.2022\@mitb.smu.edu.sg

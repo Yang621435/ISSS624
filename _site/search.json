@@ -492,9 +492,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "ISSS624 Applied Geospatial Analytics",
+    "title": "Yang Jingyuan",
     "section": "",
-    "text": "In this webpage, I am going to share with you my learning journey of geospatial analytics.\nInstructor: Dr. Kam Tin Seong, Associate Professor of Information Systems (Practice)\nStudent: Yang Jingyuan\nE-mail: jyyang.2022@mitb.smu.edu.sg"
+    "text": "E-mail: jyyang.2022@mitb.smu.edu.sg\nHello everyone! My name is Yang Jingyuan. I have a deep passion for various activities that both challenge my mind and allow me to express my creativity. One of my favorite hobbies is playing Go, an ancient board game that demands strategic thinking and patience. I find it to be an excellent way to sharpen my analytical skills while engaging in a thrilling mental battle with my opponents.\nIn addition to Go, I’m also enthusiastic about music, particularly playing the flute. The soothing and melodic sounds of the flute have always captivated me, and I have found playing this beautiful instrument to be a deeply rewarding and meditative experience. Practicing the flute allows me to express my emotions through music, and I’m always eager to learn new pieces and techniques to further enhance my skills.\nLastly, I’m a huge fan of basketball, both as a player and a spectator. The fast-paced action, teamwork, and incredible athleticism involved in the sport keep me on the edge of my seat during games. Playing basketball helps me stay active and fit, while also providing a fun way to bond with friends and teammates. It’s a fantastic way to unwind after a busy day and let off some steam.\nI’m always open to meeting new people and making connections, so please feel free to reach out and share your own interests or experiences. Let’s explore our passions together and learn from one another!"
   },
   {
     "objectID": "Take-home_Ex1/Take-home_Ex1.html",
@@ -929,5 +929,19 @@
     "title": "In-class exercise 5",
     "section": "Modeling Assessment",
     "text": "Modeling Assessment\n\nConverting SDF into sf data.frame\nTo assess the performance of the gwLR, firstly, we will convert the SDF object in as data frame by using the code chunk below.\n\ngwr.fixed <- as.data.frame(gwlr.fixed$SDF)\n\nNext, we will label yhat values greater or equal to 0.5 into 1 and else 0. The result of the logic comparison operation will be saved into a field called most.\n\ngwr.fixed <- gwr.fixed %>%\n  mutate(most = ifelse(\n    gwr.fixed$yhat >= 0.5, T, F))\n\n\ngwr.fixed$y <- as.factor(gwr.fixed$y)\ngwr.fixed$most <- as.factor(gwr.fixed$most)\nCM <- confusionMatrix(data = gwr.fixed$most, reference = gwr.fixed$y)\nCM\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction FALSE TRUE\n     FALSE  1833  268\n     TRUE    281 2374\n                                          \n               Accuracy : 0.8846          \n                 95% CI : (0.8751, 0.8935)\n    No Information Rate : 0.5555          \n    P-Value [Acc > NIR] : <2e-16          \n                                          \n                  Kappa : 0.7661          \n                                          \n Mcnemar's Test P-Value : 0.6085          \n                                          \n            Sensitivity : 0.8671          \n            Specificity : 0.8986          \n         Pos Pred Value : 0.8724          \n         Neg Pred Value : 0.8942          \n             Prevalence : 0.4445          \n         Detection Rate : 0.3854          \n   Detection Prevalence : 0.4418          \n      Balanced Accuracy : 0.8828          \n                                          \n       'Positive' Class : FALSE           \n                                          \n\n\n\nOsun_wp_sf_selected <- Osun_wp_sf_clean %>% \n  select(c(ADM2_EN, ADM2_PCODE,\n           ADM1_EN, ADM1_PCODE,\n           status))\n\n\ngwr_sf.fixed <- cbind(Osun_wp_sf_selected, gwr.fixed)\n\n\ntmap_mode(\"view\")\n\ntmap mode set to interactive viewing\n\nprob_T <- tm_shape(Osun) +\n#  tmap_options(check.and.fix = TRUE) +\n  tm_polygons(alpha = 0.1) +\ntm_shape(gwr_sf.fixed) +\n  tm_dots(col = \"yhat\",\n          border.col = \"gray60\",\n          border.lwd = 1) +\n  tm_view(set.zoom.limits = c(8, 14))\nprob_T"
+  },
+  {
+    "objectID": "ISSS608.html",
+    "href": "ISSS608.html",
+    "title": "ISSS608 Visual Analytics",
+    "section": "",
+    "text": "Here is the Homepage of ISSS608 Visual Analytics and Applications."
+  },
+  {
+    "objectID": "ISSS624.html",
+    "href": "ISSS624.html",
+    "title": "ISSS624 Applied Geospatial Analytics",
+    "section": "",
+    "text": "In this webpage, I am going to share with you my learning journey of geospatial analytics.\nInstructor: Dr. Kam Tin Seong, Associate Professor of Information Systems (Practice)\nStudent: Yang Jingyuan\nE-mail: jyyang.2022@mitb.smu.edu.sg"
   }
 ]

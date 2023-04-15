@@ -8,7 +8,7 @@ website:
     type: textbox
   navbar:
     left: 
-      - text: Hands-on Exercises
+      - text: ISSS624
         menu: 
           - text: Ex1 - Geospatial Data Wrangling with R
             href: Hands-on_Ex1/Hands-on_Ex1.qmd
@@ -22,8 +22,6 @@ website:
             href: Hands-on_Ex4/Hands-on_Ex4.qmd
           - text: Hands-on Exercise 5
             href: Hands-on_Ex5/Hands-on_Ex5.qmd
-      - text: In-class Exercises
-        menu: 
           - text: Ex1 - Spatial Weights and Applications
             href: In-class_Ex1/In-class_Ex1.qmd
           - text: In-class Exercise 2
@@ -34,14 +32,15 @@ website:
             href: In-class_Ex4/In-class_Ex4.qmd
           - text: In-class Exercise 5
             href: In-class_Ex5/In-class_Ex5.qmd
-      - text: Take-home Exercises
-        menu: 
           - text: Take-home Exercise 1
             href: Take-home_Ex1/Take-home_Ex1.qmd
           - text: Take-home Exercise 2
             href: Take-home_Ex2/Take-home_Ex2.qmd
           - text: Take-home Exercise 3
             href: Take-home_Ex3/Take-home_Ex3.qmd
+      - text: ISSS608
+        menu: 
+          - text: Ex1
     right:
       - href: index.qmd
         text: Home
