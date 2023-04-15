@@ -40,7 +40,8 @@ website:
             href: Take-home_Ex3/Take-home_Ex3.qmd
       - text: ISSS608
         menu: 
-          - text: Ex1
+          - text: Homepage
+            href: ISSS608.qmd
     right:
       - href: index.qmd
         text: Home
